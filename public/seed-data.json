@@ -1,0 +1,2445 @@
+{
+  "version": "2.0.0",
+  "claims": [
+    {
+      "id": "claim-seed-0",
+      "invoiceNumber": "INV-2026-001",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-1-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-1-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Consultation",
+      "date": "2026-02-23",
+      "submittedAt": "2026-02-23T08:30:00",
+      "status": "disbursed",
+      "claimId": "CLM-200000",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-1",
+      "invoiceNumber": "INV-2026-002",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-2-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-2-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-2-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Laboratory",
+      "date": "2026-02-20",
+      "submittedAt": "2026-02-20T08:30:00",
+      "status": "disbursed",
+      "claimId": "CLM-200001",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-2",
+      "invoiceNumber": "INV-2026-003",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-3-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Pharmacy",
+      "date": "2026-02-17",
+      "submittedAt": "2026-02-17T08:30:00",
+      "status": "disbursed",
+      "claimId": "CLM-200002",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-3",
+      "invoiceNumber": "INV-2026-004",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-4-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-4-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Radiology",
+      "date": "2026-02-14",
+      "submittedAt": "2026-02-14T08:30:00",
+      "status": "processing",
+      "claimId": "CLM-200003",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-4",
+      "invoiceNumber": "INV-2026-005",
+      "amount": 25000,
+      "items": [
+        {
+          "id": "cat-5-Surgic",
+          "description": "Surgical procedure",
+          "amount": 25000
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Theatre",
+      "date": "2026-02-11",
+      "submittedAt": "2026-02-11T08:30:00",
+      "status": "processing",
+      "claimId": "CLM-200004",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-5",
+      "invoiceNumber": "INV-2026-006",
+      "amount": 11500,
+      "items": [
+        {
+          "id": "cat-6-Assess",
+          "description": "Assessment session",
+          "amount": 1500
+        },
+        {
+          "id": "cat-6-Exerci",
+          "description": "Exercise therapy (10)",
+          "amount": 8000
+        },
+        {
+          "id": "cat-6-Hydrot",
+          "description": "Hydrotherapy session",
+          "amount": 2000
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Physiotherapy",
+      "date": "2026-02-08",
+      "submittedAt": "2026-02-08T08:30:00",
+      "status": "processing",
+      "claimId": "CLM-200005",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-6",
+      "invoiceNumber": "INV-2026-007",
+      "amount": 3300,
+      "items": [
+        {
+          "id": "cat-7-Dental",
+          "description": "Dental examination",
+          "amount": 800
+        },
+        {
+          "id": "cat-7-Tooth ",
+          "description": "Tooth extraction",
+          "amount": 2500
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Dental",
+      "date": "2026-01-23",
+      "submittedAt": null,
+      "status": "rejected",
+      "claimId": null,
+      "rejectionReason": "Amount mismatch — please review and resubmit."
+    },
+    {
+      "id": "claim-seed-7",
+      "invoiceNumber": "INV-2026-008",
+      "amount": 13500,
+      "items": [
+        {
+          "id": "cat-8-Emerge",
+          "description": "Emergency assessment",
+          "amount": 2500
+        },
+        {
+          "id": "cat-8-Trauma",
+          "description": "Trauma care",
+          "amount": 8000
+        },
+        {
+          "id": "cat-8-Observ",
+          "description": "Observation 4 hrs",
+          "amount": 3000
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Emergency",
+      "date": "2026-01-16",
+      "submittedAt": null,
+      "status": "rejected",
+      "claimId": null,
+      "rejectionReason": "Amount mismatch — please review and resubmit."
+    },
+    {
+      "id": "claim-seed-8",
+      "invoiceNumber": "INV-2026-009",
+      "amount": 14800,
+      "items": [
+        {
+          "id": "cat-9-Antena",
+          "description": "Antenatal care",
+          "amount": 2800
+        },
+        {
+          "id": "cat-9-Normal",
+          "description": "Normal delivery",
+          "amount": 12000
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Maternity",
+      "date": "2026-01-09",
+      "submittedAt": null,
+      "status": "rejected",
+      "claimId": null,
+      "rejectionReason": "Amount mismatch — please review and resubmit."
+    },
+    {
+      "id": "claim-seed-9",
+      "invoiceNumber": "INV-2026-010",
+      "amount": 1500,
+      "items": [
+        {
+          "id": "cat-10-Eye ex",
+          "description": "Eye examination",
+          "amount": 1500
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Ophthalmology",
+      "date": "2026-01-02",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-10",
+      "invoiceNumber": "INV-2026-011",
+      "amount": 10600,
+      "items": [
+        {
+          "id": "cat-11-Ward c",
+          "description": "Ward charges 2 days",
+          "amount": 7000
+        },
+        {
+          "id": "cat-11-Nursin",
+          "description": "Nursing care",
+          "amount": 2000
+        },
+        {
+          "id": "cat-11-Meals ",
+          "description": "Meals 2 days",
+          "amount": 1600
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Inpatient",
+      "date": "2025-12-26",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-11",
+      "invoiceNumber": "INV-2026-012",
+      "amount": 2000,
+      "items": [
+        {
+          "id": "cat-12-Nutrit",
+          "description": "Nutrition assessment",
+          "amount": 1200
+        },
+        {
+          "id": "cat-12-Dietar",
+          "description": "Dietary counselling",
+          "amount": 800
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Nutrition",
+      "date": "2025-12-19",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-12",
+      "invoiceNumber": "INV-2026-013",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-13-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-13-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Consultation",
+      "date": "2026-02-13",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-13",
+      "invoiceNumber": "INV-2026-014",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-14-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-14-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-14-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Laboratory",
+      "date": "2026-02-11",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-14",
+      "invoiceNumber": "INV-2026-015",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-15-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Pharmacy",
+      "date": "2026-02-09",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-15",
+      "invoiceNumber": "INV-2026-016",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-16-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-16-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Radiology",
+      "date": "2026-02-07",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-16",
+      "invoiceNumber": "INV-2026-017",
+      "amount": 25000,
+      "items": [
+        {
+          "id": "cat-17-Surgic",
+          "description": "Surgical procedure",
+          "amount": 25000
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Theatre",
+      "date": "2026-02-05",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-17",
+      "invoiceNumber": "INV-2026-018",
+      "amount": 11500,
+      "items": [
+        {
+          "id": "cat-18-Assess",
+          "description": "Assessment session",
+          "amount": 1500
+        },
+        {
+          "id": "cat-18-Exerci",
+          "description": "Exercise therapy (10)",
+          "amount": 8000
+        },
+        {
+          "id": "cat-18-Hydrot",
+          "description": "Hydrotherapy session",
+          "amount": 2000
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Physiotherapy",
+      "date": "2026-02-03",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-18",
+      "invoiceNumber": "INV-2026-019",
+      "amount": 3300,
+      "items": [
+        {
+          "id": "cat-19-Dental",
+          "description": "Dental examination",
+          "amount": 800
+        },
+        {
+          "id": "cat-19-Tooth ",
+          "description": "Tooth extraction",
+          "amount": 2500
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Dental",
+      "date": "2026-02-01",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-19",
+      "invoiceNumber": "INV-2026-020",
+      "amount": 13500,
+      "items": [
+        {
+          "id": "cat-20-Emerge",
+          "description": "Emergency assessment",
+          "amount": 2500
+        },
+        {
+          "id": "cat-20-Trauma",
+          "description": "Trauma care",
+          "amount": 8000
+        },
+        {
+          "id": "cat-20-Observ",
+          "description": "Observation 4 hrs",
+          "amount": 3000
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Emergency",
+      "date": "2026-01-30",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-20",
+      "invoiceNumber": "INV-2026-021",
+      "amount": 14800,
+      "items": [
+        {
+          "id": "cat-21-Antena",
+          "description": "Antenatal care",
+          "amount": 2800
+        },
+        {
+          "id": "cat-21-Normal",
+          "description": "Normal delivery",
+          "amount": 12000
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Maternity",
+      "date": "2026-01-28",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-21",
+      "invoiceNumber": "INV-2026-022",
+      "amount": 1500,
+      "items": [
+        {
+          "id": "cat-22-Eye ex",
+          "description": "Eye examination",
+          "amount": 1500
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Ophthalmology",
+      "date": "2026-01-26",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-22",
+      "invoiceNumber": "INV-2026-023",
+      "amount": 10600,
+      "items": [
+        {
+          "id": "cat-23-Ward c",
+          "description": "Ward charges 2 days",
+          "amount": 7000
+        },
+        {
+          "id": "cat-23-Nursin",
+          "description": "Nursing care",
+          "amount": 2000
+        },
+        {
+          "id": "cat-23-Meals ",
+          "description": "Meals 2 days",
+          "amount": 1600
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Inpatient",
+      "date": "2026-01-24",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-23",
+      "invoiceNumber": "INV-2026-024",
+      "amount": 2000,
+      "items": [
+        {
+          "id": "cat-24-Nutrit",
+          "description": "Nutrition assessment",
+          "amount": 1200
+        },
+        {
+          "id": "cat-24-Dietar",
+          "description": "Dietary counselling",
+          "amount": 800
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Nutrition",
+      "date": "2026-01-22",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-24",
+      "invoiceNumber": "INV-2026-025",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-25-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-25-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Consultation",
+      "date": "2026-01-20",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-25",
+      "invoiceNumber": "INV-2026-026",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-26-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-26-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-26-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Laboratory",
+      "date": "2026-01-18",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-26",
+      "invoiceNumber": "INV-2026-027",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-27-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Pharmacy",
+      "date": "2026-01-16",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-27",
+      "invoiceNumber": "INV-2026-028",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-28-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-28-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Radiology",
+      "date": "2026-01-14",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-28",
+      "invoiceNumber": "INV-2026-029",
+      "amount": 25000,
+      "items": [
+        {
+          "id": "cat-29-Surgic",
+          "description": "Surgical procedure",
+          "amount": 25000
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Theatre",
+      "date": "2026-01-12",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-29",
+      "invoiceNumber": "INV-2026-030",
+      "amount": 11500,
+      "items": [
+        {
+          "id": "cat-30-Assess",
+          "description": "Assessment session",
+          "amount": 1500
+        },
+        {
+          "id": "cat-30-Exerci",
+          "description": "Exercise therapy (10)",
+          "amount": 8000
+        },
+        {
+          "id": "cat-30-Hydrot",
+          "description": "Hydrotherapy session",
+          "amount": 2000
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Physiotherapy",
+      "date": "2026-01-10",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-30",
+      "invoiceNumber": "INV-2026-031",
+      "amount": 3300,
+      "items": [
+        {
+          "id": "cat-31-Dental",
+          "description": "Dental examination",
+          "amount": 800
+        },
+        {
+          "id": "cat-31-Tooth ",
+          "description": "Tooth extraction",
+          "amount": 2500
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Dental",
+      "date": "2026-01-08",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-31",
+      "invoiceNumber": "INV-2026-032",
+      "amount": 13500,
+      "items": [
+        {
+          "id": "cat-32-Emerge",
+          "description": "Emergency assessment",
+          "amount": 2500
+        },
+        {
+          "id": "cat-32-Trauma",
+          "description": "Trauma care",
+          "amount": 8000
+        },
+        {
+          "id": "cat-32-Observ",
+          "description": "Observation 4 hrs",
+          "amount": 3000
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Emergency",
+      "date": "2026-01-06",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-32",
+      "invoiceNumber": "INV-2026-033",
+      "amount": 14800,
+      "items": [
+        {
+          "id": "cat-33-Antena",
+          "description": "Antenatal care",
+          "amount": 2800
+        },
+        {
+          "id": "cat-33-Normal",
+          "description": "Normal delivery",
+          "amount": 12000
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Maternity",
+      "date": "2026-01-04",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-33",
+      "invoiceNumber": "INV-2026-034",
+      "amount": 1500,
+      "items": [
+        {
+          "id": "cat-34-Eye ex",
+          "description": "Eye examination",
+          "amount": 1500
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Ophthalmology",
+      "date": "2026-01-02",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-34",
+      "invoiceNumber": "INV-2026-035",
+      "amount": 10600,
+      "items": [
+        {
+          "id": "cat-35-Ward c",
+          "description": "Ward charges 2 days",
+          "amount": 7000
+        },
+        {
+          "id": "cat-35-Nursin",
+          "description": "Nursing care",
+          "amount": 2000
+        },
+        {
+          "id": "cat-35-Meals ",
+          "description": "Meals 2 days",
+          "amount": 1600
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Inpatient",
+      "date": "2025-12-31",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-35",
+      "invoiceNumber": "INV-2026-036",
+      "amount": 2000,
+      "items": [
+        {
+          "id": "cat-36-Nutrit",
+          "description": "Nutrition assessment",
+          "amount": 1200
+        },
+        {
+          "id": "cat-36-Dietar",
+          "description": "Dietary counselling",
+          "amount": 800
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Nutrition",
+      "date": "2025-12-29",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-36",
+      "invoiceNumber": "INV-2026-037",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-37-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-37-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Consultation",
+      "date": "2025-12-27",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-37",
+      "invoiceNumber": "INV-2026-038",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-38-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-38-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-38-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Laboratory",
+      "date": "2025-12-25",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-38",
+      "invoiceNumber": "INV-2026-039",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-39-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Pharmacy",
+      "date": "2025-12-23",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-39",
+      "invoiceNumber": "INV-2026-040",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-40-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-40-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Radiology",
+      "date": "2025-12-21",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-40",
+      "invoiceNumber": "INV-2026-041",
+      "amount": 25000,
+      "items": [
+        {
+          "id": "cat-41-Surgic",
+          "description": "Surgical procedure",
+          "amount": 25000
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Theatre",
+      "date": "2025-12-19",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-41",
+      "invoiceNumber": "INV-2026-042",
+      "amount": 11500,
+      "items": [
+        {
+          "id": "cat-42-Assess",
+          "description": "Assessment session",
+          "amount": 1500
+        },
+        {
+          "id": "cat-42-Exerci",
+          "description": "Exercise therapy (10)",
+          "amount": 8000
+        },
+        {
+          "id": "cat-42-Hydrot",
+          "description": "Hydrotherapy session",
+          "amount": 2000
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Physiotherapy",
+      "date": "2025-12-17",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-42",
+      "invoiceNumber": "INV-2026-043",
+      "amount": 3300,
+      "items": [
+        {
+          "id": "cat-43-Dental",
+          "description": "Dental examination",
+          "amount": 800
+        },
+        {
+          "id": "cat-43-Tooth ",
+          "description": "Tooth extraction",
+          "amount": 2500
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Dental",
+      "date": "2025-12-15",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-43",
+      "invoiceNumber": "INV-2026-044",
+      "amount": 13500,
+      "items": [
+        {
+          "id": "cat-44-Emerge",
+          "description": "Emergency assessment",
+          "amount": 2500
+        },
+        {
+          "id": "cat-44-Trauma",
+          "description": "Trauma care",
+          "amount": 8000
+        },
+        {
+          "id": "cat-44-Observ",
+          "description": "Observation 4 hrs",
+          "amount": 3000
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Emergency",
+      "date": "2025-12-13",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-44",
+      "invoiceNumber": "INV-2026-045",
+      "amount": 14800,
+      "items": [
+        {
+          "id": "cat-45-Antena",
+          "description": "Antenatal care",
+          "amount": 2800
+        },
+        {
+          "id": "cat-45-Normal",
+          "description": "Normal delivery",
+          "amount": 12000
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Maternity",
+      "date": "2025-12-11",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-45",
+      "invoiceNumber": "INV-2026-046",
+      "amount": 1500,
+      "items": [
+        {
+          "id": "cat-46-Eye ex",
+          "description": "Eye examination",
+          "amount": 1500
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Ophthalmology",
+      "date": "2025-12-09",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-46",
+      "invoiceNumber": "INV-2026-047",
+      "amount": 10600,
+      "items": [
+        {
+          "id": "cat-47-Ward c",
+          "description": "Ward charges 2 days",
+          "amount": 7000
+        },
+        {
+          "id": "cat-47-Nursin",
+          "description": "Nursing care",
+          "amount": 2000
+        },
+        {
+          "id": "cat-47-Meals ",
+          "description": "Meals 2 days",
+          "amount": 1600
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Inpatient",
+      "date": "2025-12-07",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-47",
+      "invoiceNumber": "INV-2026-048",
+      "amount": 2000,
+      "items": [
+        {
+          "id": "cat-48-Nutrit",
+          "description": "Nutrition assessment",
+          "amount": 1200
+        },
+        {
+          "id": "cat-48-Dietar",
+          "description": "Dietary counselling",
+          "amount": 800
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Nutrition",
+      "date": "2025-12-05",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-48",
+      "invoiceNumber": "INV-2026-049",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-49-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-49-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Consultation",
+      "date": "2025-12-03",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-49",
+      "invoiceNumber": "INV-2026-050",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-50-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-50-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-50-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Laboratory",
+      "date": "2025-12-01",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-50",
+      "invoiceNumber": "INV-2026-051",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-51-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Pharmacy",
+      "date": "2025-11-29",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-51",
+      "invoiceNumber": "INV-2026-052",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-52-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-52-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Radiology",
+      "date": "2025-11-27",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-52",
+      "invoiceNumber": "INV-2026-053",
+      "amount": 25000,
+      "items": [
+        {
+          "id": "cat-53-Surgic",
+          "description": "Surgical procedure",
+          "amount": 25000
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Theatre",
+      "date": "2025-11-25",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-53",
+      "invoiceNumber": "INV-2026-054",
+      "amount": 11500,
+      "items": [
+        {
+          "id": "cat-54-Assess",
+          "description": "Assessment session",
+          "amount": 1500
+        },
+        {
+          "id": "cat-54-Exerci",
+          "description": "Exercise therapy (10)",
+          "amount": 8000
+        },
+        {
+          "id": "cat-54-Hydrot",
+          "description": "Hydrotherapy session",
+          "amount": 2000
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Physiotherapy",
+      "date": "2025-11-23",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-54",
+      "invoiceNumber": "INV-2026-055",
+      "amount": 3300,
+      "items": [
+        {
+          "id": "cat-55-Dental",
+          "description": "Dental examination",
+          "amount": 800
+        },
+        {
+          "id": "cat-55-Tooth ",
+          "description": "Tooth extraction",
+          "amount": 2500
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Dental",
+      "date": "2025-11-21",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-55",
+      "invoiceNumber": "INV-2026-056",
+      "amount": 13500,
+      "items": [
+        {
+          "id": "cat-56-Emerge",
+          "description": "Emergency assessment",
+          "amount": 2500
+        },
+        {
+          "id": "cat-56-Trauma",
+          "description": "Trauma care",
+          "amount": 8000
+        },
+        {
+          "id": "cat-56-Observ",
+          "description": "Observation 4 hrs",
+          "amount": 3000
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Emergency",
+      "date": "2025-11-19",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-56",
+      "invoiceNumber": "INV-2026-057",
+      "amount": 14800,
+      "items": [
+        {
+          "id": "cat-57-Antena",
+          "description": "Antenatal care",
+          "amount": 2800
+        },
+        {
+          "id": "cat-57-Normal",
+          "description": "Normal delivery",
+          "amount": 12000
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Maternity",
+      "date": "2025-11-17",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-57",
+      "invoiceNumber": "INV-2026-058",
+      "amount": 1500,
+      "items": [
+        {
+          "id": "cat-58-Eye ex",
+          "description": "Eye examination",
+          "amount": 1500
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Ophthalmology",
+      "date": "2025-11-15",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-58",
+      "invoiceNumber": "INV-2026-059",
+      "amount": 10600,
+      "items": [
+        {
+          "id": "cat-59-Ward c",
+          "description": "Ward charges 2 days",
+          "amount": 7000
+        },
+        {
+          "id": "cat-59-Nursin",
+          "description": "Nursing care",
+          "amount": 2000
+        },
+        {
+          "id": "cat-59-Meals ",
+          "description": "Meals 2 days",
+          "amount": 1600
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Inpatient",
+      "date": "2025-11-13",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-59",
+      "invoiceNumber": "INV-2026-060",
+      "amount": 2000,
+      "items": [
+        {
+          "id": "cat-60-Nutrit",
+          "description": "Nutrition assessment",
+          "amount": 1200
+        },
+        {
+          "id": "cat-60-Dietar",
+          "description": "Dietary counselling",
+          "amount": 800
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Nutrition",
+      "date": "2025-11-11",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-60",
+      "invoiceNumber": "INV-2026-061",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-61-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-61-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Consultation",
+      "date": "2025-11-09",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-61",
+      "invoiceNumber": "INV-2026-062",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-62-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-62-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-62-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Laboratory",
+      "date": "2025-11-07",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-62",
+      "invoiceNumber": "INV-2026-063",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-63-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Pharmacy",
+      "date": "2025-11-05",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-63",
+      "invoiceNumber": "INV-2026-064",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-64-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-64-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Radiology",
+      "date": "2025-11-03",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-64",
+      "invoiceNumber": "INV-2026-065",
+      "amount": 25000,
+      "items": [
+        {
+          "id": "cat-65-Surgic",
+          "description": "Surgical procedure",
+          "amount": 25000
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Theatre",
+      "date": "2025-11-01",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-65",
+      "invoiceNumber": "INV-2026-066",
+      "amount": 11500,
+      "items": [
+        {
+          "id": "cat-66-Assess",
+          "description": "Assessment session",
+          "amount": 1500
+        },
+        {
+          "id": "cat-66-Exerci",
+          "description": "Exercise therapy (10)",
+          "amount": 8000
+        },
+        {
+          "id": "cat-66-Hydrot",
+          "description": "Hydrotherapy session",
+          "amount": 2000
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Physiotherapy",
+      "date": "2025-10-30",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-66",
+      "invoiceNumber": "INV-2026-067",
+      "amount": 3300,
+      "items": [
+        {
+          "id": "cat-67-Dental",
+          "description": "Dental examination",
+          "amount": 800
+        },
+        {
+          "id": "cat-67-Tooth ",
+          "description": "Tooth extraction",
+          "amount": 2500
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Dental",
+      "date": "2025-10-28",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-67",
+      "invoiceNumber": "INV-2026-068",
+      "amount": 13500,
+      "items": [
+        {
+          "id": "cat-68-Emerge",
+          "description": "Emergency assessment",
+          "amount": 2500
+        },
+        {
+          "id": "cat-68-Trauma",
+          "description": "Trauma care",
+          "amount": 8000
+        },
+        {
+          "id": "cat-68-Observ",
+          "description": "Observation 4 hrs",
+          "amount": 3000
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Emergency",
+      "date": "2025-10-26",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-68",
+      "invoiceNumber": "INV-2026-069",
+      "amount": 14800,
+      "items": [
+        {
+          "id": "cat-69-Antena",
+          "description": "Antenatal care",
+          "amount": 2800
+        },
+        {
+          "id": "cat-69-Normal",
+          "description": "Normal delivery",
+          "amount": 12000
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Maternity",
+      "date": "2025-10-24",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-69",
+      "invoiceNumber": "INV-2026-070",
+      "amount": 1500,
+      "items": [
+        {
+          "id": "cat-70-Eye ex",
+          "description": "Eye examination",
+          "amount": 1500
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Ophthalmology",
+      "date": "2025-10-22",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-70",
+      "invoiceNumber": "INV-2026-071",
+      "amount": 10600,
+      "items": [
+        {
+          "id": "cat-71-Ward c",
+          "description": "Ward charges 2 days",
+          "amount": 7000
+        },
+        {
+          "id": "cat-71-Nursin",
+          "description": "Nursing care",
+          "amount": 2000
+        },
+        {
+          "id": "cat-71-Meals ",
+          "description": "Meals 2 days",
+          "amount": 1600
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Inpatient",
+      "date": "2025-10-20",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-71",
+      "invoiceNumber": "INV-2026-072",
+      "amount": 2000,
+      "items": [
+        {
+          "id": "cat-72-Nutrit",
+          "description": "Nutrition assessment",
+          "amount": 1200
+        },
+        {
+          "id": "cat-72-Dietar",
+          "description": "Dietary counselling",
+          "amount": 800
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Nutrition",
+      "date": "2025-10-18",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-72",
+      "invoiceNumber": "INV-2026-073",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-73-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-73-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Consultation",
+      "date": "2025-10-16",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-73",
+      "invoiceNumber": "INV-2026-074",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-74-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-74-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-74-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Laboratory",
+      "date": "2025-10-14",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-74",
+      "invoiceNumber": "INV-2026-075",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-75-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Pharmacy",
+      "date": "2025-10-12",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-75",
+      "invoiceNumber": "INV-2026-076",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-76-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-76-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Radiology",
+      "date": "2025-10-10",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-76",
+      "invoiceNumber": "INV-2026-077",
+      "amount": 25000,
+      "items": [
+        {
+          "id": "cat-77-Surgic",
+          "description": "Surgical procedure",
+          "amount": 25000
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Theatre",
+      "date": "2025-10-08",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-77",
+      "invoiceNumber": "INV-2026-078",
+      "amount": 11500,
+      "items": [
+        {
+          "id": "cat-78-Assess",
+          "description": "Assessment session",
+          "amount": 1500
+        },
+        {
+          "id": "cat-78-Exerci",
+          "description": "Exercise therapy (10)",
+          "amount": 8000
+        },
+        {
+          "id": "cat-78-Hydrot",
+          "description": "Hydrotherapy session",
+          "amount": 2000
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Physiotherapy",
+      "date": "2025-10-06",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-78",
+      "invoiceNumber": "INV-2026-079",
+      "amount": 3300,
+      "items": [
+        {
+          "id": "cat-79-Dental",
+          "description": "Dental examination",
+          "amount": 800
+        },
+        {
+          "id": "cat-79-Tooth ",
+          "description": "Tooth extraction",
+          "amount": 2500
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Dental",
+      "date": "2025-10-04",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-79",
+      "invoiceNumber": "INV-2026-080",
+      "amount": 13500,
+      "items": [
+        {
+          "id": "cat-80-Emerge",
+          "description": "Emergency assessment",
+          "amount": 2500
+        },
+        {
+          "id": "cat-80-Trauma",
+          "description": "Trauma care",
+          "amount": 8000
+        },
+        {
+          "id": "cat-80-Observ",
+          "description": "Observation 4 hrs",
+          "amount": 3000
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Emergency",
+      "date": "2025-10-02",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-80",
+      "invoiceNumber": "INV-2026-081",
+      "amount": 14800,
+      "items": [
+        {
+          "id": "cat-81-Antena",
+          "description": "Antenatal care",
+          "amount": 2800
+        },
+        {
+          "id": "cat-81-Normal",
+          "description": "Normal delivery",
+          "amount": 12000
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Maternity",
+      "date": "2025-09-30",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-81",
+      "invoiceNumber": "INV-2026-082",
+      "amount": 1500,
+      "items": [
+        {
+          "id": "cat-82-Eye ex",
+          "description": "Eye examination",
+          "amount": 1500
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Ophthalmology",
+      "date": "2025-09-28",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-82",
+      "invoiceNumber": "INV-2026-083",
+      "amount": 10600,
+      "items": [
+        {
+          "id": "cat-83-Ward c",
+          "description": "Ward charges 2 days",
+          "amount": 7000
+        },
+        {
+          "id": "cat-83-Nursin",
+          "description": "Nursing care",
+          "amount": 2000
+        },
+        {
+          "id": "cat-83-Meals ",
+          "description": "Meals 2 days",
+          "amount": 1600
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Inpatient",
+      "date": "2025-09-26",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-83",
+      "invoiceNumber": "INV-2026-084",
+      "amount": 2000,
+      "items": [
+        {
+          "id": "cat-84-Nutrit",
+          "description": "Nutrition assessment",
+          "amount": 1200
+        },
+        {
+          "id": "cat-84-Dietar",
+          "description": "Dietary counselling",
+          "amount": 800
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Nutrition",
+      "date": "2025-09-24",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-84",
+      "invoiceNumber": "INV-2026-085",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-85-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-85-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Consultation",
+      "date": "2025-09-22",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-85",
+      "invoiceNumber": "INV-2026-086",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-86-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-86-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-86-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Laboratory",
+      "date": "2025-09-20",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-86",
+      "invoiceNumber": "INV-2026-087",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-87-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Pharmacy",
+      "date": "2025-09-18",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-87",
+      "invoiceNumber": "INV-2026-088",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-88-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-88-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Radiology",
+      "date": "2025-09-16",
+      "submittedAt": "2025-09-16T08:30:00",
+      "status": "disbursed",
+      "claimId": "CLM-200087",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-88",
+      "invoiceNumber": "INV-2026-089",
+      "amount": 25000,
+      "items": [
+        {
+          "id": "cat-89-Surgic",
+          "description": "Surgical procedure",
+          "amount": 25000
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Theatre",
+      "date": "2025-09-14",
+      "submittedAt": "2025-09-14T08:30:00",
+      "status": "processing",
+      "claimId": "CLM-200088",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-89",
+      "invoiceNumber": "INV-2026-090",
+      "amount": 11500,
+      "items": [
+        {
+          "id": "cat-90-Assess",
+          "description": "Assessment session",
+          "amount": 1500
+        },
+        {
+          "id": "cat-90-Exerci",
+          "description": "Exercise therapy (10)",
+          "amount": 8000
+        },
+        {
+          "id": "cat-90-Hydrot",
+          "description": "Hydrotherapy session",
+          "amount": 2000
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Physiotherapy",
+      "date": "2025-09-12",
+      "submittedAt": null,
+      "status": "rejected",
+      "claimId": null,
+      "rejectionReason": "Amount mismatch — please review and resubmit."
+    },
+    {
+      "id": "claim-seed-90",
+      "invoiceNumber": "INV-2026-091",
+      "amount": 3300,
+      "items": [
+        {
+          "id": "cat-91-Dental",
+          "description": "Dental examination",
+          "amount": 800
+        },
+        {
+          "id": "cat-91-Tooth ",
+          "description": "Tooth extraction",
+          "amount": 2500
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Dental",
+      "date": "2025-09-10",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-91",
+      "invoiceNumber": "INV-2026-092",
+      "amount": 13500,
+      "items": [
+        {
+          "id": "cat-92-Emerge",
+          "description": "Emergency assessment",
+          "amount": 2500
+        },
+        {
+          "id": "cat-92-Trauma",
+          "description": "Trauma care",
+          "amount": 8000
+        },
+        {
+          "id": "cat-92-Observ",
+          "description": "Observation 4 hrs",
+          "amount": 3000
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Emergency",
+      "date": "2025-09-08",
+      "submittedAt": "2025-09-08T08:30:00",
+      "status": "disbursed",
+      "claimId": "CLM-200091",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-92",
+      "invoiceNumber": "INV-2026-093",
+      "amount": 14800,
+      "items": [
+        {
+          "id": "cat-93-Antena",
+          "description": "Antenatal care",
+          "amount": 2800
+        },
+        {
+          "id": "cat-93-Normal",
+          "description": "Normal delivery",
+          "amount": 12000
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Maternity",
+      "date": "2025-09-06",
+      "submittedAt": "2025-09-06T08:30:00",
+      "status": "processing",
+      "claimId": "CLM-200092",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-93",
+      "invoiceNumber": "INV-2026-094",
+      "amount": 1500,
+      "items": [
+        {
+          "id": "cat-94-Eye ex",
+          "description": "Eye examination",
+          "amount": 1500
+        }
+      ],
+      "facility": "Jumuia Huruma Annex",
+      "paymentPoint": "Ophthalmology",
+      "date": "2025-09-04",
+      "submittedAt": null,
+      "status": "rejected",
+      "claimId": null,
+      "rejectionReason": "Amount mismatch — please review and resubmit."
+    },
+    {
+      "id": "claim-seed-94",
+      "invoiceNumber": "INV-2026-095",
+      "amount": 10600,
+      "items": [
+        {
+          "id": "cat-95-Ward c",
+          "description": "Ward charges 2 days",
+          "amount": 7000
+        },
+        {
+          "id": "cat-95-Nursin",
+          "description": "Nursing care",
+          "amount": 2000
+        },
+        {
+          "id": "cat-95-Meals ",
+          "description": "Meals 2 days",
+          "amount": 1600
+        }
+      ],
+      "facility": "Jumuia Masii",
+      "paymentPoint": "Inpatient",
+      "date": "2025-09-02",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-95",
+      "invoiceNumber": "INV-2026-096",
+      "amount": 2000,
+      "items": [
+        {
+          "id": "cat-96-Nutrit",
+          "description": "Nutrition assessment",
+          "amount": 1200
+        },
+        {
+          "id": "cat-96-Dietar",
+          "description": "Dietary counselling",
+          "amount": 800
+        }
+      ],
+      "facility": "Jumuia Turbo",
+      "paymentPoint": "Nutrition",
+      "date": "2025-08-31",
+      "submittedAt": "2025-08-31T08:30:00",
+      "status": "disbursed",
+      "claimId": "CLM-200095",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-96",
+      "invoiceNumber": "INV-2026-097",
+      "amount": 2700,
+      "items": [
+        {
+          "id": "cat-97-Consul",
+          "description": "Consultation fee",
+          "amount": 1800
+        },
+        {
+          "id": "cat-97-Follow",
+          "description": "Follow-up visit",
+          "amount": 900
+        }
+      ],
+      "facility": "Jumuia Nangina",
+      "paymentPoint": "Consultation",
+      "date": "2025-08-29",
+      "submittedAt": "2025-08-29T08:30:00",
+      "status": "processing",
+      "claimId": "CLM-200096",
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-97",
+      "invoiceNumber": "INV-2026-098",
+      "amount": 3600,
+      "items": [
+        {
+          "id": "cat-98-Blood ",
+          "description": "Blood panel (FBC)",
+          "amount": 1200
+        },
+        {
+          "id": "cat-98-Urinal",
+          "description": "Urinalysis",
+          "amount": 600
+        },
+        {
+          "id": "cat-98-Lipid ",
+          "description": "Lipid profile",
+          "amount": 1800
+        }
+      ],
+      "facility": "Jumuia Chogoria",
+      "paymentPoint": "Laboratory",
+      "date": "2025-08-27",
+      "submittedAt": null,
+      "status": "rejected",
+      "claimId": null,
+      "rejectionReason": "Amount mismatch — please review and resubmit."
+    },
+    {
+      "id": "claim-seed-98",
+      "invoiceNumber": "INV-2026-099",
+      "amount": 3200,
+      "items": [
+        {
+          "id": "cat-99-Prescr",
+          "description": "Prescription drugs",
+          "amount": 3200
+        }
+      ],
+      "facility": "Jumuia Huruma",
+      "paymentPoint": "Pharmacy",
+      "date": "2025-08-25",
+      "submittedAt": null,
+      "status": "unsubmitted",
+      "claimId": null,
+      "rejectionReason": null
+    },
+    {
+      "id": "claim-seed-99",
+      "invoiceNumber": "INV-2026-100",
+      "amount": 5000,
+      "items": [
+        {
+          "id": "cat-100-Chest ",
+          "description": "Chest X-Ray",
+          "amount": 1500
+        },
+        {
+          "id": "cat-100-Abdomi",
+          "description": "Abdominal ultrasound",
+          "amount": 3500
+        }
+      ],
+      "facility": "Jumuia Kikuyu",
+      "paymentPoint": "Radiology",
+      "date": "2025-08-23",
+      "submittedAt": "2025-08-23T08:30:00",
+      "status": "disbursed",
+      "claimId": "CLM-200099",
+      "rejectionReason": null
+    }
+  ]
+}

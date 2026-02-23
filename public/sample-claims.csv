@@ -1,0 +1,9 @@
+Invoice Number,Amount,Description,Facility,Payment Point,Date
+INV-2024-001,12500,Consultation fee:2500|Lab Tests:5000|Medication:5000,Jumuia Huruma,Consultation,2024-01-15
+INV-2024-002,8750,Surgery Prep:3000|Anaesthesia:3250|Post-op Care:2500,Jumuia Kikuyu,Theatre,2024-01-22
+INV-2024-003,3200,X-Ray (chest):1200|MRI Scan:2000,Jumuia Huruma,Radiology,2024-02-03
+INV-2024-004,15000,Emergency Assessment:3500|ICU (2 nights):8500|Specialist Consult:3000,Jumuia Chogoria,Emergency,2024-02-14
+INV-2024-005,4500,Physiotherapy sessions (10):3500|Equipment Rental:1000,Jumuia Masii,Physiotherapy,2024-03-01
+INV-2024-099,9999,Unknown service:9999,Jumuia Turbo,Consultation,2024-03-10
+INV-2024-007,2100,Routine Checkup:900|Blood Panel:1200,Jumuia Huruma Annex,Laboratory,2024-03-20
+INV-2024-008,9300,Antenatal Care:2800|Delivery:5000|Newborn Exam:1500,Jumuia Nangina,Maternity,2024-04-05

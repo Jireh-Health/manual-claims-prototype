@@ -1,0 +1,11 @@
+Invoice Number,Amount,Description,Facility,Payment Point,Date
+INV-2026-038,3600,Blood panel (FBC):1200|Urinalysis:600|Lipid profile:1800,Jumuia Huruma Annex,Laboratory,2025-12-25
+INV-2026-039,3200,Prescription drugs:3200,Jumuia Masii,Pharmacy,2025-12-23
+INV-2026-040,5000,Chest X-Ray:1500|Abdominal ultrasound:3500,Jumuia Turbo,Radiology,2025-12-21
+INV-2026-041,25000,Surgical procedure:25000,Jumuia Nangina,Theatre,2025-12-19
+INV-2026-042,11500,Assessment session:1500|Exercise therapy (10):8000|Hydrotherapy session:2000,Jumuia Chogoria,Physiotherapy,2025-12-17
+INV-2026-043,3300,Dental examination:800|Tooth extraction:2500,Jumuia Huruma,Dental,2025-12-15
+INV-2026-044,13500,Emergency assessment:2500|Trauma care:8000|Observation 4 hrs:3000,Jumuia Kikuyu,Emergency,2025-12-13
+INV-2026-045,14800,Antenatal care:2800|Normal delivery:12000,Jumuia Huruma Annex,Maternity,2025-12-11
+INV-2026-046,1500,Eye examination:1500,Jumuia Masii,Ophthalmology,2025-12-09
+INV-2026-047,10600,Ward charges 2 days:7000|Nursing care:2000|Meals 2 days:1600,Jumuia Turbo,Inpatient,2025-12-07

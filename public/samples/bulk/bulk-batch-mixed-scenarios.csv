@@ -1,0 +1,12 @@
+Invoice Number,Amount,Description,Facility,Payment Point,Date
+INV-2026-058,1500,Eye examination:1500,Jumuia Kikuyu,Ophthalmology,2025-11-15
+INV-2026-059,10600,Ward charges 2 days:7000|Nursing care:2000|Meals 2 days:1600,Jumuia Huruma Annex,Inpatient,2025-11-13
+INV-2026-060,2000,Nutrition assessment:1200|Dietary counselling:800,Jumuia Masii,Nutrition,2025-11-11
+INV-2026-061,2700,Consultation fee:1800|Follow-up visit:900,Jumuia Turbo,Consultation,2025-11-09
+INV-2026-062,3600,Blood panel (FBC):1200|Urinalysis:600|Lipid profile:1800,Jumuia Nangina,Laboratory,2025-11-07
+INV-UNKNOWN-001,5000,Unknown service:5000,Jumuia Huruma,Consultation,2026-01-10
+INV-2026-063,99999,Prescription drugs:3200,Jumuia Chogoria,Pharmacy,2025-11-05
+INV-2026-064,5000,Chest X-Ray:1500|Abdominal ultrasound:3500,Jumuia Huruma,Radiology,2025-11-03
+INV-2026-065,25000,Surgical procedure:25000,Jumuia Kikuyu,Theatre,2025-11-01
+INV-2026-066,11500,Assessment session:1500|Exercise therapy (10):8000|Hydrotherapy session:2000,Jumuia Huruma Annex,Physiotherapy,2025-10-30
+INV-2026-067,3300,Dental examination:800|Tooth extraction:2500,Jumuia Masii,Dental,2025-10-28

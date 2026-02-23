@@ -1,0 +1,11 @@
+Date,Ref No,Total,Dept,Branch,Services
+2025-12-05,INV-2026-048,2000,Nutrition,Jumuia Nangina,Nutrition assessment:1200|Dietary counselling:800
+2025-12-03,INV-2026-049,2700,Consultation,Jumuia Chogoria,Consultation fee:1800|Follow-up visit:900
+2025-12-01,INV-2026-050,3600,Laboratory,Jumuia Huruma,Blood panel (FBC):1200|Urinalysis:600|Lipid profile:1800
+2025-11-29,INV-2026-051,3200,Pharmacy,Jumuia Kikuyu,Prescription drugs:3200
+2025-11-27,INV-2026-052,5000,Radiology,Jumuia Huruma Annex,Chest X-Ray:1500|Abdominal ultrasound:3500
+2025-11-25,INV-2026-053,25000,Theatre,Jumuia Masii,Surgical procedure:25000
+2025-11-23,INV-2026-054,11500,Physiotherapy,Jumuia Turbo,Assessment session:1500|Exercise therapy (10):8000|Hydrotherapy session:2000
+2025-11-21,INV-2026-055,3300,Dental,Jumuia Nangina,Dental examination:800|Tooth extraction:2500
+2025-11-19,INV-2026-056,13500,Emergency,Jumuia Chogoria,Emergency assessment:2500|Trauma care:8000|Observation 4 hrs:3000
+2025-11-17,INV-2026-057,14800,Maternity,Jumuia Huruma,Antenatal care:2800|Normal delivery:12000
