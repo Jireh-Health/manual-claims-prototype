@@ -2,7 +2,8 @@ import React, { useState, useMemo, useCallback } from 'react'
 import {
   Search, Filter, Download, ChevronUp, ChevronDown,
   RefreshCw, Eye, AlertCircle, CheckCircle2, Clock, XCircle,
-  FileUp, Plus, ArrowUpDown, Layers, Building2, RotateCcw
+  FileUp, Plus, ArrowUpDown, Layers, Building2, RotateCcw,
+  HelpCircle, Database, FolderOpen, RotateCw, ExternalLink
 } from 'lucide-react'
 import { format, parseISO, startOfDay, endOfDay } from 'date-fns'
 import { useClaimsStore } from '@/store/claimsStore'
@@ -163,6 +164,195 @@ function DetailDrawer({ claim, onClose }) {
   )
 }
 
+// ─── Instructions Modal ───────────────────────────────────────────────────────
+
+const REPO = 'https://github.com/Jireh-Health/manual-claims-prototype'
+
+function InstructionsModal({ onClose }) {
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/60" onClick={onClose} />
+      <div
+        className="relative z-10 bg-background rounded-2xl shadow-2xl w-full max-w-2xl mx-4 flex flex-col"
+        style={{ maxHeight: '88vh' }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Header */}
+        <div className="flex items-center justify-between px-6 py-4 border-b shrink-0">
+          <div className="flex items-center gap-2.5">
+            <HelpCircle className="h-5 w-5 text-primary" />
+            <h2 className="text-lg font-semibold">How this prototype works</h2>
+          </div>
+          <button onClick={onClose} className="rounded-full p-1.5 hover:bg-muted transition-colors">
+            <XCircle className="h-5 w-5 text-muted-foreground" />
+          </button>
+        </div>
+
+        {/* Body */}
+        <div className="flex-1 overflow-y-auto px-6 py-5 space-y-6 text-sm">
+
+          {/* localStorage */}
+          <section>
+            <div className="flex items-center gap-2 mb-2">
+              <Database className="h-4 w-4 text-primary shrink-0" />
+              <h3 className="font-semibold text-base">localStorage — no server involved</h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              This prototype runs entirely in your browser. There is no backend, no database, and
+              no network calls for claim data. Everything — all 100 seeded claims, submitted invoices,
+              and any changes you make — is stored in your browser's{' '}
+              <code className="bg-muted rounded px-1 py-0.5 font-mono text-xs">localStorage</code>.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mt-2">
+              Closing and reopening the tab keeps your data. Clearing browser storage or opening in
+              a different browser starts fresh. Each browser/device has its own independent copy.
+            </p>
+          </section>
+
+          <hr className="border-border" />
+
+          {/* Seeding */}
+          <section>
+            <div className="flex items-center gap-2 mb-2">
+              <Database className="h-4 w-4 text-primary shrink-0" />
+              <h3 className="font-semibold text-base">Seed data</h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              On first load the app checks for a seed version key in localStorage. If absent or
+              outdated it instantly writes 100 deterministic claims from a built-in catalog —
+              no network request required.
+            </p>
+            <div className="mt-3 rounded-lg border bg-muted/40 p-3 space-y-1.5 text-xs font-mono">
+              <p><span className="text-green-600">3</span> &nbsp;Disbursed &nbsp;— INV-2026-001 … 003</p>
+              <p><span className="text-blue-600">3</span> &nbsp;Processing — INV-2026-004 … 006</p>
+              <p><span className="text-red-600">3</span> &nbsp;Rejected &nbsp;— INV-2026-007 … 009</p>
+              <p><span className="text-gray-500">91</span>&nbsp;Unsubmitted — INV-2026-010 … 100</p>
+            </div>
+            <p className="text-muted-foreground leading-relaxed mt-2">
+              The same catalog is the source of truth for the mock verification API, so invoice
+              numbers, amounts, and line items always match — demos never break due to data drift.
+            </p>
+          </section>
+
+          <hr className="border-border" />
+
+          {/* Reset Demo */}
+          <section>
+            <div className="flex items-center gap-2 mb-2">
+              <RotateCw className="h-4 w-4 text-primary shrink-0" />
+              <h3 className="font-semibold text-base">Reset Demo button</h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              The <strong>Reset Demo</strong> button (top-right of this page) fetches{' '}
+              <code className="bg-muted rounded px-1 py-0.5 font-mono text-xs">/seed-data.json</code>{' '}
+              from the deployed site, wipes the current claims and submitted-invoice set from
+              localStorage, then reloads all 100 claims in their original states.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mt-2">
+              Use it after a demo run to restore the app to its pristine starting state without
+              having to clear browser storage manually. The seed file is regenerated by running{' '}
+              <code className="bg-muted rounded px-1 py-0.5 font-mono text-xs">node scripts/generate-samples.mjs</code>.
+            </p>
+          </section>
+
+          <hr className="border-border" />
+
+          {/* Sample files */}
+          <section>
+            <div className="flex items-center gap-2 mb-2">
+              <FolderOpen className="h-4 w-4 text-primary shrink-0" />
+              <h3 className="font-semibold text-base">Sample claim files</h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed mb-3">
+              All sample files live in the <code className="bg-muted rounded px-1 py-0.5 font-mono text-xs">public/</code> folder
+              of the repository and are served as static assets. They map 1-to-1 with invoices in the seed catalog.
+            </p>
+
+            <div className="space-y-3">
+              {/* Single */}
+              <div className="rounded-lg border p-3">
+                <p className="font-medium mb-1">Single-claim PDFs &nbsp;<span className="text-muted-foreground font-normal">(25 files)</span></p>
+                <p className="text-muted-foreground text-xs mb-2">
+                  One PDF per invoice, covering INV-2026-013 through INV-2026-037. Each PDF is a
+                  single-page invoice rendered in Courier, ready for the OCR flow.
+                </p>
+                <a
+                  href={`${REPO}/tree/main/public/samples/single`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-mono"
+                >
+                  public/samples/single/ <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+
+              {/* Bulk */}
+              <div className="rounded-lg border p-3">
+                <p className="font-medium mb-1">Bulk-claim files &nbsp;<span className="text-muted-foreground font-normal">(6 files)</span></p>
+                <div className="text-muted-foreground text-xs space-y-1 mb-2">
+                  <p><code className="bg-muted rounded px-1 font-mono">bulk-batch-1.csv</code> — 10 rows, standard column headers (INV-2026-038…047)</p>
+                  <p><code className="bg-muted rounded px-1 font-mono">bulk-batch-2-alt-headers.csv</code> — 10 rows, non-standard headers to trigger column mapping (INV-2026-048…057)</p>
+                  <p><code className="bg-muted rounded px-1 font-mono">bulk-batch-mixed-scenarios.csv</code> — mix of valid, unknown, and amount-mismatch rows for error demos</p>
+                  <p><code className="bg-muted rounded px-1 font-mono">bulk-batch-3.xlsx</code> — 10 rows Excel, standard headers (INV-2026-058…067)</p>
+                  <p><code className="bg-muted rounded px-1 font-mono">bulk-batch-4-extra-columns.xlsx</code> — 10 rows Excel with extra decorator columns (INV-2026-068…077)</p>
+                  <p><code className="bg-muted rounded px-1 font-mono">bulk-multipage.pdf</code> — 10-page PDF, one invoice per page (INV-2026-078…087)</p>
+                </div>
+                <a
+                  href={`${REPO}/tree/main/public/samples/bulk`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-mono"
+                >
+                  public/samples/bulk/ <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+
+              {/* Sample CSV */}
+              <div className="rounded-lg border p-3">
+                <p className="font-medium mb-1">General sample CSV</p>
+                <p className="text-muted-foreground text-xs mb-2">
+                  A standalone CSV you can drop into the bulk-claim flow. Items use the
+                  <code className="bg-muted rounded px-1 mx-1 font-mono">Description:price|Description:price</code>
+                  pipe-separated format so line-item prices tally to the invoice total.
+                </p>
+                <a
+                  href={`${REPO}/blob/main/public/sample-claims.csv`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 text-xs text-primary hover:underline font-mono"
+                >
+                  public/sample-claims.csv <ExternalLink className="h-3 w-3" />
+                </a>
+              </div>
+            </div>
+
+            <p className="text-muted-foreground text-xs mt-3">
+              All files are regenerated by running{' '}
+              <code className="bg-muted rounded px-1 font-mono">node scripts/generate-samples.mjs</code>{' '}
+              from the repo root. Re-running it updates <code className="bg-muted rounded px-1 font-mono">seed-data.json</code> and all sample files in sync.
+            </p>
+          </section>
+
+        </div>
+
+        {/* Footer */}
+        <div className="px-6 py-3 border-t shrink-0 flex items-center justify-between">
+          <a
+            href={REPO}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <ExternalLink className="h-3.5 w-3.5" />
+            View repository on GitHub
+          </a>
+          <Button size="sm" onClick={onClose}>Close</Button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 // ─── Main Dashboard ───────────────────────────────────────────────────────────
 
 export default function DashboardPage() {
@@ -190,7 +380,8 @@ export default function DashboardPage() {
   const [showSingleModal, setShowSingleModal] = useState(false)
   const [showBulkModal,   setShowBulkModal]   = useState(false)
   const [resubmitClaim,   setResubmitClaim]   = useState(null)
-  const [currentPage,  setCurrentPage]  = useState(1)
+  const [currentPage,       setCurrentPage]       = useState(1)
+  const [showInstructions,  setShowInstructions]  = useState(false)
   const PAGE_SIZE = 20
 
   const handleSort = useCallback((field) => {
@@ -271,6 +462,10 @@ export default function DashboardPage() {
           </div>
         </div>
         <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm" onClick={() => setShowInstructions(true)}>
+            <HelpCircle className="h-3.5 w-3.5 mr-1.5" />
+            Instructions
+          </Button>
           <Button variant="outline" size="sm" onClick={refreshClaims}>
             <RefreshCw className="h-3.5 w-3.5 mr-1.5" />
             Refresh
@@ -455,6 +650,7 @@ export default function DashboardPage() {
         )}
       </main>
 
+      {showInstructions && <InstructionsModal onClose={() => setShowInstructions(false)} />}
       {selectedClaim  && <DetailDrawer claim={selectedClaim} onClose={() => setSelectedClaim(null)} />}
       {showSingleModal && <SingleClaimModal existingClaim={resubmitClaim} onClose={() => { setShowSingleModal(false); setResubmitClaim(null) }} />}
       {showBulkModal  && <BulkClaimModal onClose={() => setShowBulkModal(false)} />}
