@@ -6,10 +6,10 @@
  * - Also consumed by scripts/generate-samples.mjs to produce sample files
  *
  * Slot assignments:
- *   001–003  Disbursed  (dashboard display)
- *   004–006  Processing (dashboard display)
- *   007–009  Rejected   (dashboard display — resubmittable)
- *   010–012  Unsubmitted (dashboard display — submittable)
+ *   001–003  Disbursed   (seeded with disbursement records)
+ *   004–006  Settled     (ready for disbursement in Wallet)
+ *   007–009  Processing  (dashboard display)
+ *   010–012  Rejected    (dashboard display — resubmittable)
  *   013–037  Unsubmitted → single-claim PDF sample files (25)
  *   038–047  Unsubmitted → bulk CSV batch-1 (10)
  *   048–057  Unsubmitted → bulk CSV batch-2 (10)
@@ -96,13 +96,13 @@ export const KNOWN_INVOICE_MAP = Object.fromEntries(
 /** Status assignment by index */
 export function seedStatus(idx) {
   if (idx <= 2)  return 'disbursed'
-  if (idx <= 5)  return 'processing'
-  if (idx <= 8)  return 'rejected'
-  if (idx <= 11) return 'unsubmitted'
+  if (idx <= 5)  return 'settled'
+  if (idx <= 8)  return 'processing'
+  if (idx <= 11) return 'rejected'
   if (idx <= 86) return 'unsubmitted'   // all demo-file slots
   // 87–99: variety
-  const cycle = ['disbursed', 'processing', 'rejected', 'unsubmitted']
-  return cycle[(idx - 87) % 4]
+  const cycle = ['disbursed', 'settled', 'processing', 'rejected', 'unsubmitted']
+  return cycle[(idx - 87) % 5]
 }
 
 export { FACILITIES, PP as PAYMENT_POINTS_DATA }

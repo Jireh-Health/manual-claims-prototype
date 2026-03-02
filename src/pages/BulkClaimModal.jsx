@@ -108,9 +108,10 @@ export default function BulkClaimModal({ onClose }) {
 
   const handleSubmitValid = async (validRows) => {
     const results = await batchSubmit(validRows)
+    const now = Date.now()
 
     const claims = validRows.map((row, i) => ({
-      id: `claim-${Date.now()}-${i}`,
+      id: `claim-${now}-${i}`,
       invoiceNumber: row.invoiceNumber,
       amount: row.amount,
       items: row.items || [],
@@ -120,9 +121,17 @@ export default function BulkClaimModal({ onClose }) {
       submittedAt: new Date().toISOString(),
       status: 'processing',
       claimId: results[i]?.claimId,
+      disbursementFailureReason: null,
     }))
 
     addSubmittedClaims(claims)
+
+    // Auto-settle all submitted claims after 2.5 seconds
+    claims.forEach((c) => {
+      setTimeout(() => {
+        useClaimsStore.getState().updateClaim(c.id, { status: 'settled' })
+      }, 2500)
+    })
 
     // Remove submitted rows from staging
     const submittedIds = new Set(validRows.map((r) => r.id))

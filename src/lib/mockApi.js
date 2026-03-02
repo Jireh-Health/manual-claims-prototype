@@ -65,3 +65,29 @@ export async function submitClaim(claim) {
 export async function batchSubmit(claims) {
   return Promise.all(claims.map((c) => submitClaim(c)))
 }
+
+export const PAYMENT_CHANNELS = [
+  { value: 'mpesa',  label: 'M-Pesa' },
+  { value: 'kcb',    label: 'KCB Bank' },
+  { value: 'equity', label: 'Equity Bank' },
+  { value: 'coop',   label: 'Co-op Bank' },
+]
+
+// Deterministic hash for reproducible failure mode
+function simpleHash(str) {
+  let h = 0
+  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0
+  return h
+}
+
+export async function disburseFunds(claimIds, channel) {
+  await delay(1500 + Math.random() * 500)
+  // Equity Bank: ~30% failure, deterministic on first claimId
+  if (channel === 'equity' && simpleHash(claimIds[0] || 'x') % 10 < 3) {
+    return { success: false, reason: 'Bank timeout. Please try again or use a different channel.' }
+  }
+  const ref = channel === 'mpesa'
+    ? `QRT${Math.random().toString(36).slice(2, 9).toUpperCase()}`
+    : `TXN-${Math.floor(Math.random() * 900000) + 100000}`
+  return { success: true, referenceNumber: ref, timestamp: new Date().toISOString() }
+}

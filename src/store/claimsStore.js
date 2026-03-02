@@ -18,11 +18,10 @@ export const useClaimsStore = create((set) => ({
 
   setClaims: (claims) => { saveClaims(claims); set({ claims }) },
 
-  /** Fetch /seed-data.json, wipe localStorage, reseed everything */
-  resetDemo: async () => {
+  resetDemo: () => {
     set({ isResetting: true })
     try {
-      const claims = await resetToSeedFile()
+      const claims = resetToSeedFile()
       set({ claims, isResetting: false })
     } catch (err) {
       console.error('Reset failed:', err)

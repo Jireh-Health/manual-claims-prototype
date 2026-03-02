@@ -77,19 +77,6 @@ export default function SingleClaimModal({ onClose, existingClaim }) {
   const handleSubmit = async (data) => {
     const result = await submitClaim(data)
 
-    const claim = {
-      id: `claim-${Date.now()}`,
-      invoiceNumber: data.invoiceNumber,
-      amount: data.amount,
-      items: data.items || [],
-      facility: data.facility || '',
-      paymentPoint: data.paymentPoint || '',
-      date: data.date || format(new Date(), 'yyyy-MM-dd'),
-      submittedAt: new Date().toISOString(),
-      status: 'processing',
-      claimId: result.claimId,
-    }
-
     if (existingClaim?.id) {
       // Resubmission of a rejected/unsubmitted claim
       updateClaim(existingClaim.id, {
@@ -102,9 +89,33 @@ export default function SingleClaimModal({ onClose, existingClaim }) {
         paymentPoint: data.paymentPoint,
         date: data.date,
         rejectionReason: null,
+        disbursementFailureReason: null,
       })
+      // Auto-settle after 2.5 seconds
+      const resubmitId = existingClaim.id
+      setTimeout(() => {
+        useClaimsStore.getState().updateClaim(resubmitId, { status: 'settled' })
+      }, 2500)
     } else {
+      const newId = `claim-${Date.now()}`
+      const claim = {
+        id: newId,
+        invoiceNumber: data.invoiceNumber,
+        amount: data.amount,
+        items: data.items || [],
+        facility: data.facility || '',
+        paymentPoint: data.paymentPoint || '',
+        date: data.date || format(new Date(), 'yyyy-MM-dd'),
+        submittedAt: new Date().toISOString(),
+        status: 'processing',
+        claimId: result.claimId,
+        disbursementFailureReason: null,
+      }
       addSubmittedClaim(claim)
+      // Auto-settle after 2.5 seconds
+      setTimeout(() => {
+        useClaimsStore.getState().updateClaim(newId, { status: 'settled' })
+      }, 2500)
     }
 
     onClose()
