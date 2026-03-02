@@ -1,13 +1,12 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useRef, useEffect } from 'react'
 import { format, parseISO } from 'date-fns'
-import { AlertCircle, XCircle, CheckCircle2, ChevronRight } from 'lucide-react'
+import { AlertCircle, XCircle, CheckCircle2, ChevronRight, ChevronDown } from 'lucide-react'
 import { useClaimsStore } from '@/store/claimsStore'
 import { useDisbursementsStore } from '@/store/disbursementsStore'
 import { disburseFunds, PAYMENT_CHANNELS } from '@/lib/mockApi'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
-import { Select } from '@/components/ui/select'
 import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 
 // ─── Batch Detail Drawer ──────────────────────────────────────────────────────
@@ -69,6 +68,59 @@ function BatchDetailDrawer({ disbursement, claims, onClose }) {
           </div>
         </div>
       </div>
+    </div>
+  )
+}
+
+// ─── Channel Picker ───────────────────────────────────────────────────────────
+
+function ChannelPicker({ value, onChange, disabled }) {
+  const [open, setOpen] = useState(false)
+  const ref = useRef(null)
+  const selected = PAYMENT_CHANNELS.find((c) => c.value === value)
+
+  useEffect(() => {
+    function handleClick(e) {
+      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
+    }
+    document.addEventListener('mousedown', handleClick)
+    return () => document.removeEventListener('mousedown', handleClick)
+  }, [])
+
+  return (
+    <div ref={ref} className="relative">
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={() => setOpen((o) => !o)}
+        className="flex items-center justify-between gap-2 w-56 rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
+      >
+        {selected ? (
+          <span className="flex flex-col items-start leading-tight text-left">
+            <span className="font-medium">{selected.label}</span>
+            <span className="text-xs text-muted-foreground">{selected.account}</span>
+          </span>
+        ) : (
+          <span className="text-muted-foreground">Choose channel…</span>
+        )}
+        <ChevronDown className="h-4 w-4 text-muted-foreground shrink-0" />
+      </button>
+
+      {open && (
+        <div className="absolute z-20 mt-1 w-56 rounded-md border bg-background shadow-lg py-1">
+          {PAYMENT_CHANNELS.map((ch) => (
+            <button
+              key={ch.value}
+              type="button"
+              onClick={() => { onChange(ch.value); setOpen(false) }}
+              className={`w-full flex flex-col items-start px-3 py-2 text-sm hover:bg-muted transition-colors ${value === ch.value ? 'bg-muted/60' : ''}`}
+            >
+              <span className="font-medium">{ch.label}</span>
+              <span className="text-xs text-muted-foreground">{ch.account}</span>
+            </button>
+          ))}
+        </div>
+      )}
     </div>
   )
 }
@@ -197,18 +249,11 @@ export default function WalletPage() {
               Select All
             </label>
 
-            <div className="w-44">
-              <Select
-                value={channel}
-                onChange={(e) => setChannel(e.target.value)}
-                disabled={isDisbursing}
-              >
-                <option value="">Choose channel…</option>
-                {PAYMENT_CHANNELS.map((ch) => (
-                  <option key={ch.value} value={ch.value}>{ch.label}</option>
-                ))}
-              </Select>
-            </div>
+            <ChannelPicker
+              value={channel}
+              onChange={setChannel}
+              disabled={isDisbursing}
+            />
 
             <Button
               onClick={handleDisburse}
@@ -268,7 +313,7 @@ export default function WalletPage() {
                           {Number(claim.amount).toLocaleString('en-KE', { minimumFractionDigits: 2 })}
                         </td>
                         <td className="px-4 py-3">
-                          <div className="flex flex-col gap-1">
+                          <div className="flex flex-col items-start gap-1">
                             <Badge variant={claim.status === 'settled' ? 'warning' : claim.status === 'disbursement_failed' ? 'error' : 'blue'}>
                               {claim.status === 'settled' ? 'Settled' : claim.status === 'disbursement_failed' ? 'Failed' : 'Disbursing'}
                             </Badge>

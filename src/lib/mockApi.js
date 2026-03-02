@@ -67,10 +67,10 @@ export async function batchSubmit(claims) {
 }
 
 export const PAYMENT_CHANNELS = [
-  { value: 'mpesa',  label: 'M-Pesa' },
-  { value: 'kcb',    label: 'KCB Bank' },
-  { value: 'equity', label: 'Equity Bank' },
-  { value: 'coop',   label: 'Co-op Bank' },
+  { value: 'mpesa',  label: 'M-Pesa',       account: '0712 345 678' },
+  { value: 'kcb',    label: 'KCB Bank',     account: 'KCB • 1234567890' },
+  { value: 'equity', label: 'Equity Bank',  account: 'Equity • 0023456789' },
+  { value: 'coop',   label: 'Co-op Bank',   account: 'Co-op • 0198765432' },
 ]
 
 // Deterministic hash for reproducible failure mode
