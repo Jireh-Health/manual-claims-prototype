@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useMemo, useEffect, useRef } from 'react'
 import { format, parseISO } from 'date-fns'
-import { AlertCircle, XCircle, CheckCircle2, ChevronRight } from 'lucide-react'
+import { AlertCircle, XCircle, CheckCircle2, ChevronRight, AlertTriangle } from 'lucide-react'
 import { useClaimsStore } from '@/store/claimsStore'
 import { useDisbursementsStore } from '@/store/disbursementsStore'
 import { disburseFunds, MPESA_PAYBILL } from '@/lib/mockApi'
@@ -142,8 +142,12 @@ export default function WalletPage() {
   const [selectedIds, setSelectedIds] = useState(new Set())
   const [showConfirm, setShowConfirm] = useState(false)
   const [isDisbursing, setIsDisbursing] = useState(false)
-  const [errorMessage, setErrorMessage] = useState(null)
+  const [errorMessage, setErrorMessage] = useState(null)   // red persistent banner
+  const [retryIds, setRetryIds] = useState(null)           // ids to re-attempt on retry
+  const [successMessage, setSuccessMessage] = useState(null) // green auto-dismiss banner
+  const [partialWarning, setPartialWarning] = useState(null) // yellow persistent banner
   const [selectedDisbursement, setSelectedDisbursement] = useState(null)
+  const successTimerRef = useRef(null)
 
   // Claims eligible to show in wallet
   const walletClaims = useMemo(
@@ -179,23 +183,23 @@ export default function WalletPage() {
     })
   }
 
-  const openConfirm = () => {
-    if (selectedIds.size === 0 || isDisbursing) return
-    setErrorMessage(null)
-    setShowConfirm(true)
+  const showSuccess = (message) => {
+    clearTimeout(successTimerRef.current)
+    setSuccessMessage(message)
+    successTimerRef.current = setTimeout(() => setSuccessMessage(null), 5000)
   }
 
-  const handleConfirmDisburse = async () => {
-    setShowConfirm(false)
-    const ids = [...selectedIds]
-    const amountSnapshot = selectedTotal
-    ids.forEach((id) => updateClaim(id, { status: 'disbursing', disbursementFailureReason: null }))
-    setSelectedIds(new Set())
+  const runDisburse = async (ids, amountSnapshot) => {
     setIsDisbursing(true)
+    setErrorMessage(null)
+    setRetryIds(null)
+    setPartialWarning(null)
+
+    ids.forEach((id) => updateClaim(id, { status: 'disbursing', disbursementFailureReason: null }))
 
     const result = await disburseFunds(ids)
 
-    if (result.success) {
+    if (result.success === true) {
       ids.forEach((id) => updateClaim(id, { status: 'disbursed' }))
       addDisbursementRecord({
         id: `disb-${Date.now()}`,
@@ -207,12 +211,56 @@ export default function WalletPage() {
         status: 'completed',
         initiator: 'Admin',
       })
+      showSuccess(`Disbursement successful — KES ${amountSnapshot.toLocaleString('en-KE', { minimumFractionDigits: 2 })} sent via M-Pesa. Ref: ${result.referenceNumber}.`)
+    } else if (result.success === 'partial') {
+      const succeeded = ids.filter((id) => result.perInvoice[id]?.success)
+      const failed = ids.filter((id) => !result.perInvoice[id]?.success)
+      succeeded.forEach((id) => updateClaim(id, { status: 'disbursed' }))
+      failed.forEach((id) => updateClaim(id, { status: 'disbursement_failed', disbursementFailureReason: 'Partial batch failure.' }))
+      const succeededAmount = useClaimsStore.getState().claims
+        .filter((c) => succeeded.includes(c.id))
+        .reduce((s, c) => s + (parseFloat(c.amount) || 0), 0)
+      addDisbursementRecord({
+        id: `disb-${Date.now()}`,
+        timestamp: result.timestamp,
+        channelLabel: MPESA_PAYBILL.label,
+        referenceNumber: result.referenceNumber,
+        totalAmount: succeededAmount,
+        claimIds: succeeded,
+        status: 'completed',
+        initiator: 'Admin',
+      })
+      setPartialWarning(`Partial disbursement — ${succeeded.length} of ${ids.length} invoice${ids.length !== 1 ? 's' : ''} paid. ${failed.length} invoice${failed.length !== 1 ? 's' : ''} failed and remain in your Wallet.`)
     } else {
       ids.forEach((id) => updateClaim(id, { status: 'disbursement_failed', disbursementFailureReason: result.reason }))
-      setErrorMessage(result.reason)
+      setErrorMessage(result.reason || 'Payout could not be completed. Please try again.')
+      setRetryIds(ids)
     }
 
     setIsDisbursing(false)
+  }
+
+  const openConfirm = () => {
+    if (selectedIds.size === 0 || isDisbursing) return
+    setShowConfirm(true)
+  }
+
+  const handleConfirmDisburse = () => {
+    setShowConfirm(false)
+    const ids = [...selectedIds]
+    const amountSnapshot = selectedTotal
+    setSelectedIds(new Set())
+    runDisburse(ids, amountSnapshot)
+  }
+
+  const handleRetry = () => {
+    if (!retryIds) return
+    const ids = retryIds
+    const amountSnapshot = useClaimsStore.getState().claims
+      .filter((c) => ids.includes(c.id))
+      .reduce((s, c) => s + (parseFloat(c.amount) || 0), 0)
+    setSelectedIds(new Set())
+    runDisburse(ids, amountSnapshot)
   }
 
   const canDisburse = selectedIds.size > 0 && !isDisbursing
@@ -238,10 +286,42 @@ export default function WalletPage() {
             </CardContent>
           </Card>
 
+          {successMessage && (
+            <div className="rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800 flex items-start gap-2">
+              <CheckCircle2 className="h-4 w-4 shrink-0 mt-0.5 text-green-600" />
+              <span className="flex-1">{successMessage}</span>
+              <button onClick={() => setSuccessMessage(null)} className="text-green-600 hover:text-green-800">
+                <XCircle className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+
+          {partialWarning && (
+            <div className="rounded-lg border border-yellow-300 bg-yellow-50 px-4 py-3 text-sm text-yellow-800 flex items-start gap-2">
+              <AlertTriangle className="h-4 w-4 shrink-0 mt-0.5 text-yellow-600" />
+              <span className="flex-1">{partialWarning}</span>
+              <button onClick={() => setPartialWarning(null)} className="text-yellow-600 hover:text-yellow-800">
+                <XCircle className="h-4 w-4" />
+              </button>
+            </div>
+          )}
+
           {errorMessage && (
             <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 flex items-start gap-2">
               <AlertCircle className="h-4 w-4 shrink-0 mt-0.5" />
-              <span>{errorMessage}</span>
+              <span className="flex-1">{errorMessage}</span>
+              {retryIds && (
+                <button
+                  onClick={handleRetry}
+                  disabled={isDisbursing}
+                  className="ml-2 shrink-0 rounded-md border border-red-300 bg-white px-2.5 py-1 text-xs font-medium text-red-700 hover:bg-red-50 disabled:opacity-50"
+                >
+                  Retry
+                </button>
+              )}
+              <button onClick={() => { setErrorMessage(null); setRetryIds(null) }} className="text-red-400 hover:text-red-600">
+                <XCircle className="h-4 w-4" />
+              </button>
             </div>
           )}
 

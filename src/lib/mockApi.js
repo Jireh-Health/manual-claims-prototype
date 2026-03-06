@@ -74,10 +74,30 @@ export const MPESA_PAYBILL = {
 
 export async function disburseFunds(invoiceIds) {
   await delay(1500 + Math.random() * 500)
-  // ~10% random transient failure to simulate M-Pesa network/timeout errors
-  if (Math.random() < 0.1) {
+  const rand = Math.random()
+
+  // ~10% full failure (network/timeout)
+  if (rand < 0.1) {
     return { success: false, reason: 'M-Pesa timeout. Please try again.' }
   }
+
+  // ~15% partial failure when disbursing more than 2 invoices
+  if (invoiceIds.length > 2 && rand < 0.25) {
+    const failCount = Math.max(1, Math.floor(invoiceIds.length * 0.2))
+    const failedIds = new Set(invoiceIds.slice(0, failCount))
+    const perInvoice = {}
+    for (const id of invoiceIds) {
+      if (failedIds.has(id)) {
+        perInvoice[id] = { success: false }
+      } else {
+        perInvoice[id] = { success: true, referenceNumber: `QRT${Math.random().toString(36).slice(2, 9).toUpperCase()}` }
+      }
+    }
+    const batchRef = `QRT${Math.random().toString(36).slice(2, 9).toUpperCase()}`
+    return { success: 'partial', perInvoice, referenceNumber: batchRef, timestamp: new Date().toISOString() }
+  }
+
+  // Full success
   const ref = `QRT${Math.random().toString(36).slice(2, 9).toUpperCase()}`
   return { success: true, referenceNumber: ref, timestamp: new Date().toISOString() }
 }
