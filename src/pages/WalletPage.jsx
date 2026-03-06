@@ -1,9 +1,9 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react'
+import React, { useState, useMemo } from 'react'
 import { format, parseISO } from 'date-fns'
-import { AlertCircle, XCircle, CheckCircle2, ChevronRight, ChevronDown } from 'lucide-react'
+import { AlertCircle, XCircle, CheckCircle2, ChevronRight } from 'lucide-react'
 import { useClaimsStore } from '@/store/claimsStore'
 import { useDisbursementsStore } from '@/store/disbursementsStore'
-import { disburseFunds, PAYMENT_CHANNELS } from '@/lib/mockApi'
+import { disburseFunds, MPESA_PAYBILL } from '@/lib/mockApi'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent } from '@/components/ui/card'
@@ -72,55 +72,62 @@ function BatchDetailDrawer({ disbursement, claims, onClose }) {
   )
 }
 
-// ─── Channel Picker ───────────────────────────────────────────────────────────
+// ─── Disburse Confirm Modal ───────────────────────────────────────────────────
 
-function ChannelPicker({ value, onChange, disabled }) {
-  const [open, setOpen] = useState(false)
-  const ref = useRef(null)
-  const selected = PAYMENT_CHANNELS.find((c) => c.value === value)
+function generateCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789'
+  let code = 'DISB-'
+  for (let i = 0; i < 4; i++) code += chars[Math.floor(Math.random() * chars.length)]
+  return code
+}
 
-  useEffect(() => {
-    function handleClick(e) {
-      if (ref.current && !ref.current.contains(e.target)) setOpen(false)
-    }
-    document.addEventListener('mousedown', handleClick)
-    return () => document.removeEventListener('mousedown', handleClick)
-  }, [])
+function DisburseConfirmModal({ invoiceCount, totalAmount, onConfirm, onCancel }) {
+  const [code] = useState(generateCode)
+  const [input, setInput] = useState('')
+  const matches = input === code
 
   return (
-    <div ref={ref} className="relative">
-      <button
-        type="button"
-        disabled={disabled}
-        onClick={() => setOpen((o) => !o)}
-        className="flex items-center justify-between gap-2 w-56 rounded-md border border-input bg-background px-3 py-2 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-ring disabled:opacity-50 disabled:cursor-not-allowed"
+    <div className="fixed inset-0 z-50 flex items-center justify-center">
+      <div className="absolute inset-0 bg-black/60" onClick={onCancel} />
+      <div
+        className="relative z-10 bg-background rounded-2xl shadow-2xl w-full max-w-sm mx-4 p-6 space-y-5"
+        onClick={(e) => e.stopPropagation()}
       >
-        {selected ? (
-          <span className="flex flex-col items-start leading-tight text-left">
-            <span className="font-medium">{selected.label}</span>
-            <span className="text-xs text-muted-foreground">{selected.account}</span>
-          </span>
-        ) : (
-          <span className="text-muted-foreground">Choose channel…</span>
-        )}
-        <ChevronDown className="h-4 w-4 text-muted-foreground shrink-0" />
-      </button>
-
-      {open && (
-        <div className="absolute z-20 mt-1 w-56 rounded-md border bg-background shadow-lg py-1">
-          {PAYMENT_CHANNELS.map((ch) => (
-            <button
-              key={ch.value}
-              type="button"
-              onClick={() => { onChange(ch.value); setOpen(false) }}
-              className={`w-full flex flex-col items-start px-3 py-2 text-sm hover:bg-muted transition-colors ${value === ch.value ? 'bg-muted/60' : ''}`}
-            >
-              <span className="font-medium">{ch.label}</span>
-              <span className="text-xs text-muted-foreground">{ch.account}</span>
-            </button>
-          ))}
+        <div>
+          <h3 className="text-base font-semibold">Confirm Disbursement</h3>
+          <p className="text-sm text-muted-foreground mt-1">
+            {invoiceCount} invoice{invoiceCount !== 1 ? 's' : ''} · KES {totalAmount.toLocaleString('en-KE', { minimumFractionDigits: 2 })}
+          </p>
+          <p className="text-xs text-muted-foreground mt-0.5">
+            Via {MPESA_PAYBILL.label} · {MPESA_PAYBILL.paybill} / {MPESA_PAYBILL.account}
+          </p>
         </div>
-      )}
+
+        <div className="rounded-lg bg-muted/60 border px-4 py-3 text-center">
+          <p className="text-xs text-muted-foreground mb-1">Type this code to confirm</p>
+          <p className="text-2xl font-bold font-mono tracking-widest">{code}</p>
+        </div>
+
+        <div className="space-y-1.5">
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value.toUpperCase())}
+            placeholder="Enter code…"
+            className="w-full rounded-md border border-input bg-background px-3 py-2 text-sm font-mono tracking-wider focus:outline-none focus:ring-1 focus:ring-ring"
+            autoFocus
+          />
+        </div>
+
+        <div className="flex gap-2">
+          <Button variant="outline" className="flex-1" onClick={onCancel}>
+            Cancel
+          </Button>
+          <Button className="flex-1" disabled={!matches} onClick={onConfirm}>
+            Confirm Disburse
+          </Button>
+        </div>
+      </div>
     </div>
   )
 }
@@ -133,7 +140,7 @@ export default function WalletPage() {
   const { disbursements, addDisbursementRecord } = useDisbursementsStore()
 
   const [selectedIds, setSelectedIds] = useState(new Set())
-  const [channel, setChannel] = useState('')
+  const [showConfirm, setShowConfirm] = useState(false)
   const [isDisbursing, setIsDisbursing] = useState(false)
   const [errorMessage, setErrorMessage] = useState(null)
   const [selectedDisbursement, setSelectedDisbursement] = useState(null)
@@ -172,28 +179,30 @@ export default function WalletPage() {
     })
   }
 
-  const handleDisburse = async () => {
-    if (selectedIds.size === 0 || !channel) return
+  const openConfirm = () => {
+    if (selectedIds.size === 0 || isDisbursing) return
     setErrorMessage(null)
+    setShowConfirm(true)
+  }
 
+  const handleConfirmDisburse = async () => {
+    setShowConfirm(false)
     const ids = [...selectedIds]
+    const amountSnapshot = selectedTotal
     ids.forEach((id) => updateClaim(id, { status: 'disbursing', disbursementFailureReason: null }))
     setSelectedIds(new Set())
     setIsDisbursing(true)
 
-    const selectedAmountSnapshot = selectedTotal
-
-    const result = await disburseFunds(ids, channel)
+    const result = await disburseFunds(ids)
 
     if (result.success) {
       ids.forEach((id) => updateClaim(id, { status: 'disbursed' }))
       addDisbursementRecord({
         id: `disb-${Date.now()}`,
         timestamp: result.timestamp,
-        channel,
-        channelLabel: PAYMENT_CHANNELS.find((c) => c.value === channel)?.label || channel,
+        channelLabel: MPESA_PAYBILL.label,
         referenceNumber: result.referenceNumber,
-        totalAmount: selectedAmountSnapshot,
+        totalAmount: amountSnapshot,
         claimIds: ids,
         status: 'completed',
         initiator: 'Admin',
@@ -206,7 +215,7 @@ export default function WalletPage() {
     setIsDisbursing(false)
   }
 
-  const canDisburse = selectedIds.size > 0 && channel && !isDisbursing
+  const canDisburse = selectedIds.size > 0 && !isDisbursing
 
   return (
     <main className="px-6 py-6 max-w-screen-2xl mx-auto space-y-5">
@@ -249,14 +258,8 @@ export default function WalletPage() {
               Select All
             </label>
 
-            <ChannelPicker
-              value={channel}
-              onChange={setChannel}
-              disabled={isDisbursing}
-            />
-
             <Button
-              onClick={handleDisburse}
+              onClick={openConfirm}
               disabled={!canDisburse}
               size="sm"
             >
@@ -274,7 +277,7 @@ export default function WalletPage() {
           {walletClaims.length === 0 ? (
             <div className="py-16 text-center text-muted-foreground">
               <CheckCircle2 className="h-8 w-8 mx-auto mb-3 opacity-30" />
-              <p className="text-sm">No settled claims awaiting disbursement.</p>
+              <p className="text-sm">No settled invoices awaiting disbursement.</p>
             </div>
           ) : (
             <div className="rounded-xl border overflow-hidden shadow-sm">
@@ -390,6 +393,15 @@ export default function WalletPage() {
           )}
         </TabsContent>
       </Tabs>
+
+      {showConfirm && (
+        <DisburseConfirmModal
+          invoiceCount={selectedIds.size}
+          totalAmount={selectedTotal}
+          onConfirm={handleConfirmDisburse}
+          onCancel={() => setShowConfirm(false)}
+        />
+      )}
 
       {selectedDisbursement && (
         <BatchDetailDrawer

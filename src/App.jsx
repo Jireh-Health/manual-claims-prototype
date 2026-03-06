@@ -46,7 +46,7 @@ function InstructionsModal({ onClose }) {
             </div>
             <p className="text-muted-foreground leading-relaxed">
               This prototype runs entirely in your browser. There is no backend, no database, and
-              no network calls for claim data. Everything — all 100 seeded claims, submitted invoices,
+              no network calls for invoice data. Everything — all 100 seeded invoices, submitted invoices,
               and any changes you make — is stored in your browser's{' '}
               <code className="bg-muted rounded px-1 py-0.5 font-mono text-xs">localStorage</code>.
             </p>
@@ -65,7 +65,7 @@ function InstructionsModal({ onClose }) {
             </div>
             <p className="text-muted-foreground leading-relaxed">
               On first load the app checks for a seed version key in localStorage. If absent or
-              outdated it instantly writes 100 deterministic claims from a built-in catalog —
+              outdated it instantly writes 100 deterministic invoices from a built-in catalog —
               no network request required.
             </p>
             <div className="mt-3 rounded-lg border bg-muted/40 p-3 space-y-1.5 text-xs font-mono">
@@ -89,8 +89,8 @@ function InstructionsModal({ onClose }) {
               <h3 className="font-semibold text-base">Reset Demo button</h3>
             </div>
             <p className="text-muted-foreground leading-relaxed">
-              The <strong>Reset Demo</strong> button (top-right) rebuilds all 100 claims from the
-              built-in catalog, wipes the current claims and submitted-invoice set from localStorage,
+              The <strong>Reset Demo</strong> button (top-right) rebuilds all 100 invoices from the
+              built-in catalog, wipes the current invoices and submitted-invoice set from localStorage,
               and restores the 2 seeded disbursement records.
             </p>
           </section>
@@ -100,7 +100,7 @@ function InstructionsModal({ onClose }) {
           <section>
             <div className="flex items-center gap-2 mb-2">
               <FolderOpen className="h-4 w-4 text-primary shrink-0" />
-              <h3 className="font-semibold text-base">Sample claim files</h3>
+              <h3 className="font-semibold text-base">Sample invoice files</h3>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-3">
               All sample files live in the <code className="bg-muted rounded px-1 py-0.5 font-mono text-xs">public/</code> folder
@@ -221,7 +221,7 @@ export default function App() {
   ).length
 
   const handleReset = () => {
-    if (!window.confirm('Reset demo? This will restore all seed claims and disbursement records.')) return
+    if (!window.confirm('Reset demo? This will restore all seed invoices and disbursement records.')) return
     resetDemo()
     refreshDisbursements()
     setResetDone(true)
@@ -238,7 +238,7 @@ export default function App() {
             </div>
             <div>
               <h1 className="text-base font-semibold leading-tight">Jumuia Hospitals</h1>
-              <p className="text-xs text-muted-foreground">Claims Management Portal</p>
+              <p className="text-xs text-muted-foreground">Invoice Management Portal</p>
             </div>
           </div>
 
@@ -282,11 +282,11 @@ export default function App() {
           </Button>
           <Button variant="outline" size="sm" onClick={() => setShowBulkModal(true)}>
             <FileUp className="h-3.5 w-3.5 mr-1.5" />
-            Submit Bulk Claims
+            Submit Bulk Invoices
           </Button>
           <Button size="sm" onClick={() => { setResubmitClaim(null); setShowSingleModal(true) }}>
             <Plus className="h-3.5 w-3.5 mr-1.5" />
-            New Single Claim
+            New Single Invoice
           </Button>
         </div>
       </header>

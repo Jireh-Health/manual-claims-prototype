@@ -7,8 +7,7 @@ export const SEED_DISBURSEMENTS = [
   {
     id: 'disb-seed-0',
     timestamp: '2026-02-10T10:30:00.000Z',
-    channel: 'mpesa',
-    channelLabel: 'M-Pesa',
+    channelLabel: 'M-Pesa Paybill',
     referenceNumber: 'QRT7ABC123',
     totalAmount: 6300,
     claimIds: ['claim-seed-0', 'claim-seed-1'],
@@ -18,9 +17,8 @@ export const SEED_DISBURSEMENTS = [
   {
     id: 'disb-seed-1',
     timestamp: '2026-02-18T14:15:00.000Z',
-    channel: 'kcb',
-    channelLabel: 'KCB Bank',
-    referenceNumber: 'TXN-892341',
+    channelLabel: 'M-Pesa Paybill',
+    referenceNumber: 'QRTX9M2R45',
     totalAmount: 3200,
     claimIds: ['claim-seed-2'],
     status: 'completed',

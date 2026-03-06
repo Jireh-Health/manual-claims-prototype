@@ -157,7 +157,7 @@ export default function BulkClaimModal({ onClose }) {
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-4 border-b shrink-0">
           <div>
-            <h2 className="text-lg font-semibold">Submit Bulk Claims</h2>
+            <h2 className="text-lg font-semibold">Submit Bulk Invoices</h2>
             <div className="flex items-center gap-2 mt-1">
               {Object.entries(stepLabels).map(([key, label], i, arr) => (
                 <React.Fragment key={key}>

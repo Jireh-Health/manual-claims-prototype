@@ -136,7 +136,7 @@ export default function SingleClaimModal({ onClose, existingClaim }) {
         <div className="flex items-center justify-between px-6 py-4 border-b shrink-0">
           <div>
             <h2 className="text-lg font-semibold">
-              {existingClaim ? 'Resubmit Claim' : 'Submit Single Claim'}
+              {existingClaim ? 'Resubmit Invoice' : 'Submit Single Invoice'}
             </h2>
             <p className="text-sm text-muted-foreground">
               {step === 'upload' ? 'Upload an invoice to begin OCR extraction' : 'Review and correct extracted data before submitting'}
@@ -174,7 +174,7 @@ export default function SingleClaimModal({ onClose, existingClaim }) {
                 onClick={handleSkipUpload}
                 className="w-full text-sm text-center text-primary hover:underline"
               >
-                Enter claim details manually
+                Enter invoice details manually
               </button>
             </div>
           ) : (

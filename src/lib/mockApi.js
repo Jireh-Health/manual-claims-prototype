@@ -66,28 +66,18 @@ export async function batchSubmit(claims) {
   return Promise.all(claims.map((c) => submitClaim(c)))
 }
 
-export const PAYMENT_CHANNELS = [
-  { value: 'mpesa',  label: 'M-Pesa',       account: '0712 345 678' },
-  { value: 'kcb',    label: 'KCB Bank',     account: 'KCB • 1234567890' },
-  { value: 'equity', label: 'Equity Bank',  account: 'Equity • 0023456789' },
-  { value: 'coop',   label: 'Co-op Bank',   account: 'Co-op • 0198765432' },
-]
-
-// Deterministic hash for reproducible failure mode
-function simpleHash(str) {
-  let h = 0
-  for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0
-  return h
+export const MPESA_PAYBILL = {
+  label:   'M-Pesa Paybill',
+  paybill: '247247',
+  account: '0714 000 000',
 }
 
-export async function disburseFunds(claimIds, channel) {
+export async function disburseFunds(invoiceIds) {
   await delay(1500 + Math.random() * 500)
-  // Equity Bank: ~30% failure, deterministic on first claimId
-  if (channel === 'equity' && simpleHash(claimIds[0] || 'x') % 10 < 3) {
-    return { success: false, reason: 'Bank timeout. Please try again or use a different channel.' }
+  // ~10% random transient failure to simulate M-Pesa network/timeout errors
+  if (Math.random() < 0.1) {
+    return { success: false, reason: 'M-Pesa timeout. Please try again.' }
   }
-  const ref = channel === 'mpesa'
-    ? `QRT${Math.random().toString(36).slice(2, 9).toUpperCase()}`
-    : `TXN-${Math.floor(Math.random() * 900000) + 100000}`
+  const ref = `QRT${Math.random().toString(36).slice(2, 9).toUpperCase()}`
   return { success: true, referenceNumber: ref, timestamp: new Date().toISOString() }
 }

@@ -66,9 +66,9 @@ function DetailDrawer({ claim, onClose }) {
 
   const downloadRemittance = () => {
     const lines = [
-      `JUMUIA HOSPITALS — CLAIMS REMITTANCE SUMMARY`,
-      `=============================================`,
-      `Claim ID:       ${claim.claimId || 'N/A'}`,
+      `JUMUIA HOSPITALS — INVOICES REMITTANCE SUMMARY`,
+      `===============================================`,
+      `Invoice ID:     ${claim.claimId || 'N/A'}`,
       `Invoice No:     ${claim.invoiceNumber}`,
       `Facility:       ${claim.facility || 'N/A'}`,
       `Payment Point:  ${claim.paymentPoint || 'N/A'}`,
@@ -114,7 +114,7 @@ function DetailDrawer({ claim, onClose }) {
           <div className="grid grid-cols-2 gap-3 text-sm">
             {[
               ['Status',        <StatusBadge key="s" status={claim.status} />],
-              ['Claim ID',      claim.claimId || '—'],
+              ['Invoice ID',     claim.claimId || '—'],
               ['Facility',      claim.facility || '—'],
               ['Payment Point', claim.paymentPoint || '—'],
               ['Date',          claim.date || '—'],
@@ -260,7 +260,7 @@ export default function DashboardPage({ onResubmitClaim }) {
       {/* Summary Cards */}
       <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
         {[
-          { label: 'Total Claims',  value: stats.total,       icon: Layers,       color: 'text-foreground' },
+          { label: 'Total Invoices', value: stats.total,       icon: Layers,       color: 'text-foreground' },
           { label: 'Disbursed',     value: stats.disbursed,   icon: CheckCircle2, color: 'text-green-600'  },
           { label: 'Settled',       value: stats.settled,     icon: Wallet,       color: 'text-yellow-600' },
           { label: 'Processing',    value: stats.processing,  icon: Clock,        color: 'text-blue-600'   },
@@ -285,7 +285,7 @@ export default function DashboardPage({ onResubmitClaim }) {
         <div className="relative flex-1 min-w-[220px]">
           <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground pointer-events-none" />
           <Input
-            placeholder="Search invoice #, facility, payment point, claim ID…"
+            placeholder="Search invoice #, facility, payment point, invoice ID…"
             value={search}
             onChange={(e) => { setSearch(e.target.value); setCurrentPage(1) }}
             className="pl-8"
@@ -332,7 +332,7 @@ export default function DashboardPage({ onResubmitClaim }) {
       {/* Results count */}
       <div className="flex items-center justify-between text-sm text-muted-foreground">
         <span>
-          Showing {paginated.length} of {filtered.length} claims
+          Showing {paginated.length} of {filtered.length} invoices
           {filtered.length !== claims.length && ` (filtered from ${claims.length})`}
         </span>
         <span>Page {currentPage} of {Math.max(1, totalPages)}</span>
@@ -370,7 +370,7 @@ export default function DashboardPage({ onResubmitClaim }) {
         {paginated.length === 0 && (
           <div className="py-16 text-center text-muted-foreground">
             <Filter className="h-8 w-8 mx-auto mb-3 opacity-30" />
-            <p className="text-sm">No claims match your filters.</p>
+            <p className="text-sm">No invoices match your filters.</p>
             {hasFilters && (
               <button onClick={clearFilters} className="text-xs text-primary mt-1 hover:underline">
                 Clear filters
@@ -448,7 +448,7 @@ function ClaimRow({ claim, onView, onSubmit }) {
           </Button>
           {canResubmit ? (
             <Button size="sm" onClick={() => onSubmit(claim)} className="h-7 px-2 text-xs">
-              Submit Claim
+              Submit Invoice
             </Button>
           ) : (
             <span className={`text-xs px-2 py-1 rounded-full font-medium ${
